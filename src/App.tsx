@@ -1,11 +1,9 @@
 import './App.css';
-import { Header } from './components/header/Header';
-import { Home } from './pages/home/Home';
+import { Router } from './router/routes';
 function App() {
   return (
     <div className="w-full h-screen">
-      <Header />
-      <Home />
+      <Router />
     </div>
   );
 }
