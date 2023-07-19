@@ -10,7 +10,10 @@ export function Home() {
 
   return (
     <Fragment>
-      <Header />
+      <Header  data={{
+          label: 'Login',
+          routerPath: 'login'
+        }} />
       <section className="w-full relative mt-24">
         <div className="bg-topo flex items-center justify-center">
           <h2 className="font-bold text-4xl text-indigo-600 bg-white opacity-80 to-transparent p-10 rounded">
