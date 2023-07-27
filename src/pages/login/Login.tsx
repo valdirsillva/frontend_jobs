@@ -29,7 +29,12 @@ export function Login() {
                         </button>
                         <div className="mt-5">
                             <span className=" font-medium text-gray-600">Não tem conta?
-                                <a href="#"> Cadastrar</a>
+                                <a href="/company"> Sou empresa</a>
+                            </span>
+                        </div>
+                        <div className="mt-5">
+                            <span className=" font-medium text-gray-600">
+                                <a href="#"> Sou candidato</a>
                             </span>
                         </div>
                     </div>
