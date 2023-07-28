@@ -1,5 +1,8 @@
 import { Fragment, useEffect, useState } from "react";
 // import { jobs } from "../../services/dataset";
+
+import { Briefcase, CircleDollarSign, MapPin } from "lucide-react"
+
 import { Stack } from "../../components/jobs/stacks/Stack";
 import { Description } from "../../components/jobs/description/Description";
 import { Search } from "../../components/jobs/search/Search";
@@ -11,12 +14,13 @@ export function Home() {
 
   const fetchData = async () => {
     try {
-      const api = new ApiService
+      const api = new ApiService()
+
       const response = await api.get('/jobs')
       // console.log(response.data.jobs)
 
       setListJobs(response.data.jobs)
-    } catch(err) {
+    } catch (err) {
       console.log(err)
     }
   }
@@ -27,10 +31,10 @@ export function Home() {
 
   return (
     <Fragment>
-      <Header  data={{
-          label: 'Login',
-          routerPath: 'login'
-        }} />
+      <Header data={{
+        label: 'Login',
+        routerPath: 'login'
+      }} />
       <section className="w-full relative mt-24">
         <div className="bg-topo flex items-center justify-center">
           <h2 className="font-bold text-4xl text-indigo-600 bg-white opacity-80 to-transparent p-10 rounded">
@@ -51,7 +55,7 @@ export function Home() {
               Total de vagas encontradas: {listJobs.length}
             </span>
 
-            {listJobs.map(({ id, job_title, job_quantity, seniority, salary, modality, technologies, requirements}) => {
+            {listJobs.map(({ id, job_title, job_quantity, seniority, salary, modality, technologies, requirements }) => {
               return (
                 <section className="w-full mb-5 p-10 bg-white border-2 rounded-xl">
                   <div className="flex flex-col">
@@ -63,12 +67,16 @@ export function Home() {
                       <Stack data={technologies.split(",")} />
                     </div>
 
-                    <div className="flex flex-row items-center gap-12 m-2">
-                       <span className="font-bold text-gray-900">
-                         R$ {salary}
-                       </span>
-                       <span className="font-bold text-gray-900">
-                        senioridade: {seniority}
+                    <div className="flex flex-row items-center gap-10 m-1">
+                      <span className="flex font-bold text-gray-900">
+                        <CircleDollarSign color="#fff" fill="#be185d" className="mr-3" /> R$ {salary}
+                      </span>
+                      <span className="flex font-bold text-gray-900">
+                        <Briefcase color="#fff" fill="#be185d" className="mr-3" />{seniority}
+                      </span>
+
+                      <span className="flex font-bold text-gray-900">
+                        <MapPin color="#fff" fill="#be185d" className="mr-3" />{modality}
                       </span>
                     </div>
 
