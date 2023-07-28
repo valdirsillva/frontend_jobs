@@ -15,7 +15,7 @@ interface Company {
   password: string;
 }
 
-export function CreateEmployee() {
+export function CreateCompany() {
   const [cep, setCep] = useState<string>('')
 
   const [fieldValues, setFieldValues] = useState<Company>({
