@@ -48,7 +48,7 @@ export function CreateCandidate() {
                 password: hash,
             }
 
-            await api.post('/candidate/create', newCandidate)
+            await api.post('/candidate', newCandidate)
 
         } catch (err) {
             console.error(err)
