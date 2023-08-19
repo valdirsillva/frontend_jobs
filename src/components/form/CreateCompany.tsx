@@ -66,7 +66,7 @@ export function CreateCompany() {
       await api.post('/companies/create', newCompany)
 
     } catch (err) {
-      console.log(err)
+      console.error(err)
     }
   }
 

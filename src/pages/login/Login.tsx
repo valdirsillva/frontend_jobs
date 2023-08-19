@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 export function Login() {
     return (
@@ -6,7 +7,7 @@ export function Login() {
                 <h2 className="text-gray-600 font-bold text-3xl">Entre com a sua conta</h2>
                 <form className="w-full flex flex-col gap-5 p-10">
                     <div className="flex flex-col">
-                        <label htmlFor="" className="w-20 font-medium text-gray-600 mb-1">Login *</label>
+                        <label htmlFor="" className="w-20 font-medium text-gray-600 mb-1">Seu nome</label>
                         <input
                             type="text"
                             name="login"
@@ -15,10 +16,10 @@ export function Login() {
                         />
                     </div>
                     <div className="flex flex-col">
-                        <label htmlFor="" className="w-[1px]0 font-medium text-gray-600 mb-1">Senha *</label>
+                        <label htmlFor="" className="w-[1px]0 font-medium text-gray-600 mb-1">Email</label>
                         <input
-                            type="password"
-                            name="password"
+                            type="email"
+                            name="email"
                             className="border-slate-[1px]00 bg-gray-100 p-4 rounded placeholder-slate-400 focus:outline-none focus:border-violet-800 border-[1px]"
                             placeholder="Sua senha"
                         />
@@ -34,7 +35,7 @@ export function Login() {
                         </div>
                         <div className="mt-5">
                             <span className=" font-medium text-gray-600">
-                                <a href="#"> Sou candidato</a>
+                                <Link to="/candidate">Sou candidato</Link>
                             </span>
                         </div>
                     </div>
