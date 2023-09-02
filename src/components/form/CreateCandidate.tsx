@@ -1,7 +1,6 @@
-import CryptoJS from "crypto-js"
 import { useState, ChangeEvent, FormEvent } from "react";
 import { ApiService } from "../../services/ApiService";
-
+import bcrypt from "bcryptjs"
 interface Candidate {
     name: string;
     email: string;
@@ -14,15 +13,6 @@ export function CreateCandidate() {
         email: '',
         password: ''
     })
-
-    const cyptoPassword = (secretKey: string) => {
-        const originalText = process.env.REACT_APP_PHRASE_SECRET ?? 'xmbb12'
-        const passwordHash = CryptoJS.AES.encrypt(
-            originalText,
-            secretKey
-        ).toString()
-        return passwordHash;
-    }
 
     const handleChangeValues = (e: ChangeEvent<HTMLInputElement>) => {
         const fieldName = e.target.name;
@@ -38,9 +28,10 @@ export function CreateCandidate() {
 
     const formSubmitCompany = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        const saltRounds = 10;
         try {
             const api = new ApiService()
-            const hash = cyptoPassword(fieldValues.password)
+            const hash = await bcrypt.hash(fieldValues.password, saltRounds)
 
             const newCandidate = {
                 name: fieldValues.name,
@@ -48,7 +39,7 @@ export function CreateCandidate() {
                 password: hash,
             }
 
-            await api.post('/candidate', newCandidate)
+            await api.post('/candidates', newCandidate)
 
         } catch (err) {
             console.error(err)

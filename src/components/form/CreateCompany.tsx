@@ -63,7 +63,7 @@ export function CreateCompany() {
         description_text: fieldValues.description_text
       }
 
-      await api.post('/companies/create', newCompany)
+      await api.post('/companies', newCompany)
 
     } catch (err) {
       console.error(err)
