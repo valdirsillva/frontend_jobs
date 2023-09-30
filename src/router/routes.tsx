@@ -7,7 +7,7 @@ import { Candidate } from "../pages/candidate/Candidate";
 export function Router() {
     return (
         <Routes>
-            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Login />} />
             <Route path="/jobs" element={<Home />} />
             <Route path="/candidate" element={<Candidate />} />
             <Route path="/company" element={<Company />} />
